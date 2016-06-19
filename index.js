@@ -1,5 +1,6 @@
 import exampleRoute from './server/routes/example';
 import mappingsRoute from './server/routes/mappings';
+import moviesRoute from './server/routes/list';
 
 export default function (kibana) {
   return new kibana.Plugin({
@@ -26,6 +27,7 @@ export default function (kibana) {
       // Add server routes and initalize the plugin here
       exampleRoute(server);
       mappingsRoute(server);
+      moviesRoute(server);
 
       let call = server.plugins.elasticsearch.callWithRequest;
 

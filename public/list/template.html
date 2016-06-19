@@ -1,4 +1,5 @@
 <div class='container'>
+  
   <div class='row'>
     <div class='col-12-sm'>
       <div class='well'>
@@ -6,9 +7,12 @@
       </div>
 
       <ul>
-        <li>aaa</li>
-        <li ng-repeat='movie in movies'>{{movie.title}}</li>
+        <li ng-repeat='movie in movies'>{{movie._source.title}}</li>
       </ul>
+
+      <!-- <div class='well'>
+        <pre>{{ data | json }}</pre>
+      </div> -->
 
     </div>
   </div>

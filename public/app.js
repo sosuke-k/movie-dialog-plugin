@@ -3,13 +3,17 @@ import chrome from 'ui/chrome';
 import uiModules from 'ui/modules';
 import uiRoutes from 'ui/routes';
 
+// import angularMaterial from 'angular-material';
+
 import mappingController from './controllers/mappings'
 
 import 'ui/autoload/styles';
 import './less/main.less';
 import template from './templates/index.html';
-import list from './templates/list.html';
 import mappings from './templates/mappings.html';
+
+import listTemplate from './list/template.html';
+import listController from './list/controller.js'
 
 chrome
   .setNavBackground('#222222')
@@ -36,8 +40,8 @@ uiRoutes
   controller: 'mappingController'
 })
 .when('/list', {
-  template: list,
-  controller: 'movieListController'
+  template: listTemplate,
+  controller: 'listController'
 })
 .otherwise({
   redirectTo: '/list'
@@ -55,28 +59,4 @@ uiModules
   });
 })
 .controller('mappingController', mappingController)
-.controller('movieListController', function ($scope, $http) {
-  $scope.movies = [{
-    title: "x-men"
-  }];
-
-  // client.search({
-  //   index: 'myindex',
-  //   body: {
-  //     query: {
-  //       match: {
-  //         title: 'test'
-  //       }
-  //     },
-  //     facets: {
-  //       tags: {
-  //         terms: {
-  //           field: 'tags'
-  //         }
-  //       }
-  //     }
-  //   }
-  // }, function (error, response) {
-  //   // ...
-  // });
-});
+.controller('listController', listController);
